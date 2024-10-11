@@ -14,18 +14,22 @@
             <!-- Sección de búsqueda -->
             <h3 class="text-3xl font-semibold py-2">Buscar</h3>
             <x-search></x-search>
+            <x-count :contador="$contador" />
             <!-- Sección de cards, siempre visible y adaptable -->
-            <div class="py-4 gap-4 w-full ">
+            <div class="py-2 gap-4 w-full ">
                 @foreach ($informes as $informe)
-                    <x-card
-                        :image="$informe->ruta"
-                        :title="$informe->nombre"
-                        :resumen="$informe->resumen"
-                        :autores="$informe->autores"
+                    <x-card 
+                        :parametro="'investigacion'" 
+                        :codigo="$informe->codigo"
+                        :image="$informe->ruta" 
+                        :title="$informe->nombre" 
+                        :resumen="$informe->resumen" 
+                        :autores="$informe->autores" 
                         :acceso="$informe->tipo_acceso"
                     />
                 @endforeach
             </div>
+            
             <x-pagination :paginator="$informes" />
 
         </div>

@@ -11,14 +11,16 @@ class Card extends Component
     /**
      * Create a new component instance.
      */
+    public $parametro; 
     public $codigo;
     public $image;
     public $title;
     public $autores;
     public $acceso;
     public $resumen;
-    public function __construct($codigo, $image,$title,$autores,$acceso,$resumen)
+    public function __construct($codigo, $parametro = 'institucional', $image, $title, $autores, $acceso, $resumen)
     {
+        $this->parametro = $parametro;
         $this->codigo = $codigo;
         $this->image = $image;
         $this->title = $title;
@@ -26,6 +28,7 @@ class Card extends Component
         $this->acceso = $acceso;
         $this->resumen = $resumen;
     }
+
 
     public function getIcon()
     {

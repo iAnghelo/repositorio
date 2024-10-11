@@ -22,11 +22,12 @@ return new class extends Migration
             $table->string('estado',45);
             $table->string('tipo_acceso',45);
             $table->string('tipo_informe',60);
+            $table->timestamps(); 
         });
 
         Schema::create('tipo_informe', function (Blueprint $table) {
             $table->id();
-            $table->string('tipo_informe',60);
+            $table->string('tipo',60);
         });
     }
 

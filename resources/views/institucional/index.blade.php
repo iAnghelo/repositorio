@@ -10,14 +10,15 @@
         </div>
         {{-- Columna derecha --}}
         <div class="md:col-span-3 flex flex-col w-full px-4">
-            
             <!-- Sección de búsqueda -->
             <h3 class="text-3xl font-semibold py-2">Buscar</h3>
             <x-search></x-search>
+            <x-count :contador="$contador" />
             <!-- Sección de cards, siempre visible y adaptable -->
-            <div class="py-4 gap-4 w-full ">
+            <div class="py-2 gap-4 w-full ">
                 @foreach ($informes as $informe)
                     <x-card 
+                        :parametro="'institucional'"
                         :codigo="$informe->codigo"
                         :image="$informe->ruta" 
                         :title="$informe->nombre" 
@@ -27,6 +28,7 @@
                     />
                 @endforeach
             </div>
+            
             <x-pagination :paginator="$informes" />
             
         </div>
