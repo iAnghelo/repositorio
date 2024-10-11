@@ -20,7 +20,7 @@ class InstitucionalController extends Controller
         return view('institucional.index',compact('informes'));
     }
     public function show($item){
-        $informes = Informe::where('codigo',$item)->get();
-        return view('institucional.show',compact('informes'));
+        $informe = Informe::where('codigo', $item)->first();
+        return view('institucional.show', compact('informe'));
     }
 }
