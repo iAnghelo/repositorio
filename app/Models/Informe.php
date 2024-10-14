@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
+use Illuminate\Http\Request;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\File;
 
 class Informe extends Model
 {
@@ -25,6 +26,17 @@ class Informe extends Model
     ];
     protected $table = 'informe';
 
-    
+    public function scopeFilter(Builder $query, Request $request)
+    {
+        if ($request->filled('search')) {
+            $searchTerm = $request->input('search');
+            $query->where(function($q) use ($searchTerm) {
+                $q->where('nombre', 'like', "%$searchTerm%")
+                  ->orWhere('resumen', 'like', "%$searchTerm%")
+                  ->orWhere('autores', 'like', "%$searchTerm%");
+            });
+        }
 
+        return $query;
+    }
 }

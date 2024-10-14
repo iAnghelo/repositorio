@@ -14,7 +14,10 @@ class item extends Component
     public $autores;
     public $acceso;
     public $resumen;
-    public function __construct($codigo, $image,$title,$autores,$acceso,$resumen)
+    public $fecha;
+    public $anio;
+    public $tipo;
+    public function __construct($codigo, $image,$title,$autores,$acceso,$resumen,$fecha,$anio,$tipo)
     {
         $this->codigo = $codigo;
         $this->image = $image;
@@ -22,6 +25,9 @@ class item extends Component
         $this->autores = $autores;
         $this->acceso = $acceso;
         $this->resumen = $resumen;
+        $this->fecha = $fecha;
+        $this->anio = $anio;
+        $this->tipo = $tipo;
     }
 
     

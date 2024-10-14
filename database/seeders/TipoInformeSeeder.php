@@ -16,6 +16,7 @@ class TipoInformeSeeder extends Seeder
             ['tipo' => 'Tesis'],
             ['tipo' => 'Proyecto'],
             ['tipo' => 'Programa de estudio'],
+            ['tipo' => 'Investigacion'],
         ];
 
         foreach ($tipos as $tipo) {

@@ -7,7 +7,7 @@
             <box-icon name="{{ $getIcon() }}" type="solid" color="{{ $getColor() }}" style="width: 20px; height: 20px;"></box-icon>
             {{ $acceso }}
         </p>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ $resumen }}</p>
+        <p class="w-full mb-3 font-normal text-gray-700 dark:text-gray-400">{{ $resumen }}</p>
 
     </div>
 </a>

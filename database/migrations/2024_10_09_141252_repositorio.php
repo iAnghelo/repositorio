@@ -28,6 +28,7 @@ return new class extends Migration
         Schema::create('tipo_informe', function (Blueprint $table) {
             $table->id();
             $table->string('tipo',60);
+            $table->timestamps(); 
         });
     }
 
