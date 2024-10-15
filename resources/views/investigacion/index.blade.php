@@ -13,7 +13,9 @@
 
             <!-- Sección de búsqueda -->
             <h3 class="text-3xl font-semibold py-2">Buscar</h3>
-            <x-search></x-search>
+            <x-search
+                :parametro="'investigacion'"
+            />
             <x-count :contador="$contador" />
             <!-- Sección de cards, siempre visible y adaptable -->
             <div class="py-2 gap-4 w-full ">

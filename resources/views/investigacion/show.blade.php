@@ -6,7 +6,9 @@
         </div>
         <div class="md:col-span-3 flex flex-col w-full px-4">
             <h3 class="text-3xl font-semibold py-2">Buscar</h3>
-            <x-search></x-search>
+            <x-search
+                :parametro="'investigacion'"
+            />
             <x-item class="col-span-2"
                 :codigo="$informe->codigo"
                 :image="$informe->ruta"

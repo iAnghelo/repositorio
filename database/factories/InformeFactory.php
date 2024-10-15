@@ -17,17 +17,18 @@ class InformeFactory extends Factory
     public function definition()
     {
         $i = $this->faker->unique()->numberBetween(1, 50);
-        return [
-            'id' => str_pad($i, 5, '0', STR_PAD_LEFT),
-            'titulo' => $this->faker->sentence(3),
-            'resumen' => $this->faker->paragraph(),
-            'autores' => $this->faker->name() . '-' . $this->faker->name(),
-            'fecha_emision' => Carbon::today()->subDays($i)->format('Y-m-d'),
-            'year_creacion' => Carbon::now()->format('Y'),
-            'ruta' => "img/img$i.png",
-            'estado' => $this->faker->randomElement(['Publicado', 'No Publicado']),
-            'tipo_acceso' => $this->faker->randomElement(['Publico', 'Privado']),
-            'tipo_informe' => $this->faker->randomElement(['Informe', 'Tesis', 'Proyecto', 'Programa de estudio','Investigacion','Practicas']),
-        ];
+    return [
+        'id' => str_pad($i, 5, '0', STR_PAD_LEFT),
+        'titulo' => $this->faker->sentence(3),
+        'resumen' => $this->faker->paragraph(),
+        'autores' => $this->faker->name() . '-' . $this->faker->name(),
+        'anio' => Carbon::now()->subYears(rand(1, 5))->year,
+        'ruta' => "img/img$i.png",
+        'estado' => $this->faker->randomElement(['Publicado', 'No Publicado']),
+        'acceso' => $this->faker->randomElement(['Publico', 'Privado']),
+        'tipo_informe_id' => $this->faker->numberBetween(1, 5), // Asegúrate de que este rango corresponde a los registros en tipo_informe
+        'carrera_id' => $this->faker->numberBetween(1, 8), // Debe ser entre 1 y 8
+    ];
     }
+
 }

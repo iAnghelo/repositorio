@@ -8,15 +8,15 @@ use Illuminate\Database\Seeder;
 
 class TipoInformeSeeder extends Seeder
 {
-    
+
     public function run(): void
     {
         $tipos = [
-            ['tipo' => 'Informe'],
-            ['tipo' => 'Tesis'],
-            ['tipo' => 'Proyecto'],
-            ['tipo' => 'Programa de estudio'],
-            ['tipo' => 'Investigacion'],
+            ['nombre' => 'Informe'],
+            ['nombre' => 'Tesis'],
+            ['nombre' => 'Proyecto'],
+            ['nombre' => 'Programa de estudio'],
+            ['nombre' => 'Investigacion'],
         ];
 
         foreach ($tipos as $tipo) {

@@ -1,4 +1,4 @@
-<div class="w-full bg-zinc-200 px-2 hidden sm:grid">
+<div class="w-full bg-zinc-200 px-2 hidden pb-2 sm:grid">
     <h3 class="text-gray-800 font-medium py-2 pl-2">Mostrar en lista</h3>
     <div>
         <h1 class="text-normal font-normal text-start bg-black text-white rounded-t-md pl-2 py-2">Todo el repositorio</h1>

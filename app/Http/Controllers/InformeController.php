@@ -47,7 +47,7 @@ class InformeController extends Controller
       $file = $request->file('caratula');
       $originalName = $file->getClientOriginalName(); // Obtener el nombre original del archivo
       $path = $file->storeAs('caratulas', $originalName, 'public');
-      $new->ruta_guardado = $path;
+      $new->ruta = $path;
 
       $new->save();
 

@@ -11,25 +11,29 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('informe', function (Blueprint $table) {
-            $table->integer('id')->primary();
-            $table->string('titulo',200);
-            $table->longText(column: 'resumen');
-            $table->text('autores');
-            $table->date('fecha_emision');
-            $table->year(column: 'year_creacion');
-            $table->string('ruta',250);
-            $table->string('estado',45);
-            $table->string('tipo_acceso',45);
-            $table->string('tipo_informe',60);
-            $table->timestamps();
-        });
+
 
         Schema::create('tipo_informe', function (Blueprint $table) {
             $table->id();
-            $table->string('tipo',60);
+            $table->string('nombre', 60);
             $table->timestamps();
         });
+
+        Schema::create('informe', function (Blueprint $table) {
+            $table->id();
+            $table->string('titulo', 200);
+            $table->longText('resumen');
+            $table->text('autores');
+            $table->year('anio');
+            $table->string('ruta', 250);
+            $table->string('estado', 45);
+            $table->string('acceso', 45);
+            $table->foreignId('tipo_informe_id')->constrained('tipo_informe')->onDelete('cascade');
+            $table->foreignId('carrera_id')->constrained('carrera')->onDelete('cascade');
+            $table->timestamps();
+        });
+
+
     }
 
     /**
@@ -37,7 +41,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('informe');
+        // Schema::dropIfExists('carrera');
         Schema::dropIfExists('tipo_informe');
+        Schema::dropIfExists('informe');
     }
 };
