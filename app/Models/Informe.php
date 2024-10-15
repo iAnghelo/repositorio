@@ -13,15 +13,16 @@ class Informe extends Model
     use HasFactory;
 
     protected $fillable = [
-        'codigo', 
-        'nombre', 
-        'resumen', 
-        'autores', 
-        'fecha_creacion', 
-        'ano_creacion', 
-        'ruta', 
-        'estado', 
-        'tipo_acceso', 
+        'id',
+        'titulo',
+        'resumen',
+        'autores',
+        'fecha_emision',
+        'year_creacion',
+        'estado',
+        'ruta',
+        'estado',
+        'tipo_acceso',
         'tipo_informe',
     ];
     protected $table = 'informe';
@@ -31,7 +32,7 @@ class Informe extends Model
         if ($request->filled('search')) {
             $searchTerm = $request->input('search');
             $query->where(function($q) use ($searchTerm) {
-                $q->where('nombre', 'like', "%$searchTerm%")
+                $q->where('titulo', 'like', "%$searchTerm%")
                   ->orWhere('resumen', 'like', "%$searchTerm%")
                   ->orWhere('autores', 'like', "%$searchTerm%");
             });

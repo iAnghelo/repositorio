@@ -20,7 +20,7 @@ class InstitucionalController extends Controller
     }
     public function show($item): Factory|View
     {
-        $informe = Informe::where('codigo', $item)->firstOrFail();
+        $informe = Informe::where('id', $item)->firstOrFail();
         $this->actualizarRuta($informe);
         return view('institucional.show', compact('informe'));
     }

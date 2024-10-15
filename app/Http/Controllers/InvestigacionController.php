@@ -23,4 +23,16 @@ class InvestigacionController extends Controller
         }
         return view('investigacion.index',compact('informes', 'contador'));
     }
+    public function show($item): Factory|View
+    {
+        $informe = Informe::where('id', $item)->firstOrFail();
+        $this->actualizarRuta($informe);
+        return view('investigacion.show', compact('informe'));
+    }
+    private function actualizarRuta(Informe $informe)
+    {
+        if (!empty($informe->ruta) && !File::exists(public_path($informe->ruta))) {
+            $informe->ruta = 'img/default2.png';
+        }
+    }
 }

@@ -18,12 +18,12 @@ class InformeFactory extends Factory
     {
         $i = $this->faker->unique()->numberBetween(1, 50);
         return [
-            'codigo' => str_pad($i, 5, '0', STR_PAD_LEFT),
-            'nombre' => $this->faker->sentence(3),
+            'id' => str_pad($i, 5, '0', STR_PAD_LEFT),
+            'titulo' => $this->faker->sentence(3),
             'resumen' => $this->faker->paragraph(),
             'autores' => $this->faker->name() . '-' . $this->faker->name(),
-            'fecha_creacion' => Carbon::today()->subDays($i)->format('Y-m-d'),
-            'ano_creacion' => Carbon::now()->format('Y'),
+            'fecha_emision' => Carbon::today()->subDays($i)->format('Y-m-d'),
+            'year_creacion' => Carbon::now()->format('Y'),
             'ruta' => "img/img$i.png",
             'estado' => $this->faker->randomElement(['Publicado', 'No Publicado']),
             'tipo_acceso' => $this->faker->randomElement(['Publico', 'Privado']),

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Repositorio | Salazar Romero</title>
+    <link rel="shortcut icon" href="{{ asset('img/logoCSR.ico') }}" />
     <!-- ESTILOS -->
     @vite('resources/css/app.css')
     <!-- ICONOS -->
@@ -18,7 +19,7 @@
 
         .nav::after {
           content: '';
-          background-color: #2051da; 
+          background-color: #2051da;
           height: 3px;
           width: 0%;
           position: absolute;
@@ -48,7 +49,9 @@
         </svg>
         </a>
         <div class="inline-block border-gray-300 border-l-2 pl-6 cursor-pointer">
-            <box-icon type='solid' name='user'></box-icon>
+            <a href="{{ route('login.login') }}">
+                <box-icon type='solid' name='user'></box-icon>
+            </a>
         </div>
         </div>
     </section>
@@ -82,7 +85,7 @@
     </div>
     </header>
     <main class="max-w-7xl mx-auto mb-4">
-        
+
         {{-- Contenido principal --}}
         {{ $slot }}
         {{-- Contenido principal --}}
